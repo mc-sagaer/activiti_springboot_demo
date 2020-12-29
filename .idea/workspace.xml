@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2a32a1b0-a278-4f39-84a2-d4d3e81f5c76" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itheima/ActApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itheima/config/DemoApplicationConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itheima/utils/SecurityUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/processes/mydemo.bpmn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/itheima/test/TestActiviti.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="F:\nextModel\newIdea\IntelliJ IDEA 2020.2.2\plugins\maven\lib\maven3" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1mK2Eq0ZV3HeeIZf8pVN43NJAWf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.29770115" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\demoUser\activiti_springboot_demo" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\demoUser\activiti_springboot_demo\src\test\java" />
+      <recent name="E:\demoUser\activiti_springboot_demo\src\main\resources" />
+      <recent name="E:\demoUser\activiti_springboot_demo\src\main\java" />
+      <recent name="E:\demoUser\activiti_springboot_demo" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.TestActiviti.findProcess">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestActiviti.findProcess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="activiti_springboot_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.itheima.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.itheima.test" />
+      <option name="MAIN_CLASS_NAME" value="com.itheima.test.TestActiviti" />
+      <option name="METHOD_NAME" value="findProcess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestActiviti.startProcess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="activiti_springboot_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.itheima.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.itheima.test" />
+      <option name="MAIN_CLASS_NAME" value="com.itheima.test.TestActiviti" />
+      <option name="METHOD_NAME" value="startProcess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ActApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="activiti_springboot_demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="itheima.ActApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestActiviti.findProcess" />
+        <item itemvalue="JUnit.TestActiviti.startProcess" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2a32a1b0-a278-4f39-84a2-d4d3e81f5c76" name="Default Changelist" comment="" />
+      <created>1609227852793</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609227852793</updated>
+      <workItem from="1609227853941" duration="1366000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="280" y="3" key="#Project_Structure" timestamp="1609228117841">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="280" y="3" key="#Project_Structure/0.0.1600.860@0.0.1600.860" timestamp="1609228117841" />
+    <state x="580" y="144" key="FileChooserDialogImpl" timestamp="1609227942306">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="144" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1609227942306" />
+    <state width="1540" height="363" key="GridCell.Tab.0.bottom" timestamp="1609229143812">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1540" height="363" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1609229143812" />
+    <state width="1540" height="363" key="GridCell.Tab.0.center" timestamp="1609229143812">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1540" height="363" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1609229143812" />
+    <state width="1540" height="363" key="GridCell.Tab.0.left" timestamp="1609229143812">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1540" height="363" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1609229143812" />
+    <state width="1540" height="363" key="GridCell.Tab.0.right" timestamp="1609229143812">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1540" height="363" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1609229143812" />
+    <state width="1540" height="363" key="GridCell.Tab.1.bottom" timestamp="1609229143658">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1540" height="363" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1609229143658" />
+    <state width="1540" height="363" key="GridCell.Tab.1.center" timestamp="1609229143658">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1540" height="363" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1609229143658" />
+    <state width="1540" height="363" key="GridCell.Tab.1.left" timestamp="1609229143658">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1540" height="363" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1609229143658" />
+    <state width="1540" height="363" key="GridCell.Tab.1.right" timestamp="1609229143658">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1540" height="363" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1609229143658" />
+    <state x="440" y="132" key="NewModule_or_Project.wizard" timestamp="1609227957135">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="440" y="132" key="NewModule_or_Project.wizard/0.0.1600.860@0.0.1600.860" timestamp="1609227957135" />
+    <state x="280" y="3" key="SettingsEditor" timestamp="1609228049893">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="280" y="3" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1609228049893" />
+    <state width="300" height="36" key="javadoc.popup.new" timestamp="1609228742346">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="300" height="36" key="javadoc.popup.new/0.0.1600.860@0.0.1600.860" timestamp="1609228742346" />
+    <state x="170" y="89" key="new project wizard" timestamp="1609228067929">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="170" y="89" key="new project wizard/0.0.1600.860@0.0.1600.860" timestamp="1609228067929" />
+  </component>
+</project>
