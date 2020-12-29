@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a32a1b0-a278-4f39-84a2-d4d3e81f5c76" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itheima/ActApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itheima/config/DemoApplicationConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itheima/utils/SecurityUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/processes/mydemo.bpmn" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/itheima/test/TestActiviti.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itheima/utils/ActivitiServiceUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itheima/utils/Page.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/processes/mydemo.bpmn" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/processes/mydemo.bpmn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/itheima/test/TestActiviti.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/itheima/test/TestActiviti.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/itheima/test/TestActiviti.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/itheima/test/TestActiviti.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +36,23 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.29770115" />
@@ -59,7 +70,7 @@
       <recent name="E:\demoUser\activiti_springboot_demo" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestActiviti.findProcess">
+  <component name="RunManager" selected="Spring Boot.ActApplication">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -67,6 +78,38 @@
         </value>
       </option>
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestActiviti.deploymentProcess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="activiti_springboot_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.itheima.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.itheima.test" />
+      <option name="MAIN_CLASS_NAME" value="com.itheima.test.TestActiviti" />
+      <option name="METHOD_NAME" value="deploymentProcess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestActiviti.doTask" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="activiti_springboot_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.itheima.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.itheima.test" />
+      <option name="MAIN_CLASS_NAME" value="com.itheima.test.TestActiviti" />
+      <option name="METHOD_NAME" value="doTask" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -103,6 +146,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestActiviti.taskComplete1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="activiti_springboot_demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.itheima.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.itheima.test" />
+      <option name="MAIN_CLASS_NAME" value="com.itheima.test.TestActiviti" />
+      <option name="METHOD_NAME" value="taskComplete1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ActApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="activiti_springboot_demo" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="itheima.ActApplication" />
@@ -113,7 +172,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TestActiviti.findProcess" />
+        <item itemvalue="JUnit.TestActiviti.taskComplete1" />
+        <item itemvalue="JUnit.TestActiviti.doTask" />
         <item itemvalue="JUnit.TestActiviti.startProcess" />
+        <item itemvalue="JUnit.TestActiviti.deploymentProcess" />
       </list>
     </recent_temporary>
   </component>
@@ -128,7 +190,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609227852793</updated>
-      <workItem from="1609227853941" duration="1366000" />
+      <workItem from="1609227853941" duration="5461000" />
     </task>
     <servers />
   </component>
@@ -144,38 +206,54 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="144" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1609227942306" />
-    <state width="1540" height="363" key="GridCell.Tab.0.bottom" timestamp="1609229143812">
+    <state width="1540" height="203" key="GridCell.Tab.0.bottom" timestamp="1609233076240">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1540" height="363" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1609229143812" />
-    <state width="1540" height="363" key="GridCell.Tab.0.center" timestamp="1609229143812">
+    <state width="1540" height="203" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1609233076240" />
+    <state width="1540" height="203" key="GridCell.Tab.0.center" timestamp="1609233076240">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1540" height="363" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1609229143812" />
-    <state width="1540" height="363" key="GridCell.Tab.0.left" timestamp="1609229143812">
+    <state width="1540" height="203" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1609233076240" />
+    <state width="1540" height="203" key="GridCell.Tab.0.left" timestamp="1609233076240">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1540" height="363" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1609229143812" />
-    <state width="1540" height="363" key="GridCell.Tab.0.right" timestamp="1609229143812">
+    <state width="1540" height="203" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1609233076240" />
+    <state width="1540" height="203" key="GridCell.Tab.0.right" timestamp="1609233076240">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1540" height="363" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1609229143812" />
-    <state width="1540" height="363" key="GridCell.Tab.1.bottom" timestamp="1609229143658">
+    <state width="1540" height="203" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1609233076240" />
+    <state width="1540" height="203" key="GridCell.Tab.1.bottom" timestamp="1609233076163">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1540" height="363" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1609229143658" />
-    <state width="1540" height="363" key="GridCell.Tab.1.center" timestamp="1609229143658">
+    <state width="1540" height="203" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1609233076163" />
+    <state width="1540" height="203" key="GridCell.Tab.1.center" timestamp="1609233076163">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1540" height="363" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1609229143658" />
-    <state width="1540" height="363" key="GridCell.Tab.1.left" timestamp="1609229143658">
+    <state width="1540" height="203" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1609233076163" />
+    <state width="1540" height="203" key="GridCell.Tab.1.left" timestamp="1609233076163">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1540" height="363" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1609229143658" />
-    <state width="1540" height="363" key="GridCell.Tab.1.right" timestamp="1609229143658">
+    <state width="1540" height="203" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1609233076163" />
+    <state width="1540" height="203" key="GridCell.Tab.1.right" timestamp="1609233076163">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1540" height="363" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1609229143658" />
+    <state width="1540" height="203" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1609233076163" />
+    <state width="1540" height="203" key="GridCell.Tab.2.bottom" timestamp="1609233076163">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1540" height="203" key="GridCell.Tab.2.bottom/0.0.1600.860@0.0.1600.860" timestamp="1609233076163" />
+    <state width="1540" height="203" key="GridCell.Tab.2.center" timestamp="1609233076163">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1540" height="203" key="GridCell.Tab.2.center/0.0.1600.860@0.0.1600.860" timestamp="1609233076163" />
+    <state width="1540" height="203" key="GridCell.Tab.2.left" timestamp="1609233076163">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1540" height="203" key="GridCell.Tab.2.left/0.0.1600.860@0.0.1600.860" timestamp="1609233076163" />
+    <state width="1540" height="203" key="GridCell.Tab.2.right" timestamp="1609233076163">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1540" height="203" key="GridCell.Tab.2.right/0.0.1600.860@0.0.1600.860" timestamp="1609233076163" />
     <state x="440" y="132" key="NewModule_or_Project.wizard" timestamp="1609227957135">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -184,10 +262,14 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="280" y="3" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1609228049893" />
-    <state width="300" height="36" key="javadoc.popup.new" timestamp="1609228742346">
+    <state x="502" y="162" width="596" height="536" key="find.popup" timestamp="1609229743391">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="300" height="36" key="javadoc.popup.new/0.0.1600.860@0.0.1600.860" timestamp="1609228742346" />
+    <state x="502" y="162" width="596" height="536" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1609229743391" />
+    <state width="300" height="36" key="javadoc.popup.new" timestamp="1609232225067">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="300" height="36" key="javadoc.popup.new/0.0.1600.860@0.0.1600.860" timestamp="1609232225067" />
     <state x="170" y="89" key="new project wizard" timestamp="1609228067929">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
