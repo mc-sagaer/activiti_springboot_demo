@@ -1,5 +1,4 @@
-package itheima.utils;
-
+package com.utils;
 
 import org.activiti.bpmn.model.BpmnModel;
 import org.activiti.bpmn.model.FlowElement;
@@ -24,8 +23,10 @@ import java.util.zip.ZipInputStream;
 
 
 /**
- * 对原先的方法进行了迁徙，所有带test的全部迁至项目test包下面
+ * 这是activiti 5.1版本的一些包装了的工具方法， 部分已经过时
+ * 但是可以参考
  *
+ * 目前是7.0版本了
  * @author mc
  * @date 2020-11-18 15:28
  */

@@ -1,9 +1,8 @@
-package com.itheima.test;
+package com.test;
 
 
-import itheima.ActApplication;
-import itheima.utils.ActivitiServiceUtil;
-import itheima.utils.SecurityUtil;
+import com.ActApplication;
+import com.utils.SecurityUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.activiti.api.process.model.ProcessDefinition;
 import org.activiti.api.process.model.ProcessInstance;
@@ -24,16 +23,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.HashMap;
-import java.util.Map;
+/**
+ * 项目原先自带的测试类
+ */
 
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {ActApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class TestActiviti {
-
-    @Autowired
-    private ProcessEngine processEngine;
 
     @Autowired
     private ProcessRuntime processRuntime;
@@ -43,9 +40,6 @@ public class TestActiviti {
 
     @Autowired
     private SecurityUtil securityUtil;
-
-    @Autowired
-    private ActivitiServiceUtil activitiServiceUtil;
 
 
     /**
@@ -78,7 +72,7 @@ public class TestActiviti {
 
         // 3:进行部署
         Deployment deploy = repositoryService.createDeployment()
-                .addClasspathResource("processes/mydemo.bpmn")
+                .addClasspathResource("mydemo.bpmn")
               //  .addClasspathResource("pic/holiday.png")
                 .name("请假申请流程")
                 .deploy();

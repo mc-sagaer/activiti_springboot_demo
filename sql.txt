@@ -1,0 +1,21 @@
+CREATE TABLE `demo_qingjia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) DEFAULT NULL,
+  `reason` varchar(255) DEFAULT NULL,
+  `day` double DEFAULT NULL,
+  `take_money` double DEFAULT NULL,
+  `unique_id` varchar(50) DEFAULT NULL,
+  `cdate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='简易请假表';
+
+CREATE TABLE `demo_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `cdate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `unique_id` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='简易日志表';
+
+

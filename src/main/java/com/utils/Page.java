@@ -1,4 +1,4 @@
-package itheima.utils;
+package com.utils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
