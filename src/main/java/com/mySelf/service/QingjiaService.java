@@ -1,6 +1,7 @@
 package com.mySelf.service;
 
 import com.mySelf.bean.QingjiaBean;
+import com.utils.ActivitiServiceNewUtil;
 import com.utils.ActivitiServiceUtil;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.runtime.ProcessInstance;
@@ -21,6 +22,10 @@ public class QingjiaService {
     private ActivitiServiceUtil activitiServiceUtil;
 
     @Autowired
+    private ActivitiServiceNewUtil activitiServiceNewUtil;
+
+
+    @Autowired
     private ProcessEngine processEngine;
 
 
@@ -28,6 +33,22 @@ public class QingjiaService {
     public Map deploymentActivitiDemos(String path) {
         File file = new File(path);
         Map map = activitiServiceUtil.saveNewDeploye(file, file.getName());
+        return map;
+    }
+
+    // 删除流程定义
+    public Map deleteDeploymentActivitiDemos(String deploymentId, boolean cascade) {
+        activitiServiceNewUtil.deleteDeployment(deploymentId, cascade);
+        Map map = new HashMap();
+        map.put("success", true);
+        return map;
+    }
+
+    // 查询流程定义
+    public Map getDeploymentActivitiDemos(String key) {
+        List processDefinitionList = activitiServiceNewUtil.getProcessDefinitionList(key);
+        Map map = new HashMap();
+        map.put("processDefinitionList", processDefinitionList);
         return map;
     }
 
@@ -56,32 +77,27 @@ public class QingjiaService {
 
 
     // 执行一个请假
-    public Map submmitActivitiDemos(String uniqueId) {
-
-        // 用自己存的唯一uuid获取这个请假实例
-        List<Task> taskList = processEngine.getTaskService().createTaskQuery()
-                .processVariableValueEquals("uuid", uniqueId)
-                .list();
-
-        if (taskList.isEmpty()) {
-            return new HashMap();
-        }
-
-        // 可能出现该节点是并行任务，同一个节点需要几个人同意，，执行一次少一个。
-        Task task = taskList.get(0);
-        String taskId = task.getId();
-        String taskName = task.getName();
-        System.out.println(taskId + taskName);
-
-        // 去完成一个节点
-        processEngine.getTaskService().complete(taskId);
-
-        boolean b = JdbcService.update("INSERT INTO demo_log (name, note, unique_id) VALUES (?, ?, ?)", taskName, "let me..." + taskId, uniqueId);
+    public Map submmitActivitiDemos(String assignee, String uniqueId) {
+        Task task = activitiServiceNewUtil.getTaskByAssigneeAndUuid(assignee, uniqueId);
+        activitiServiceNewUtil.completByTaskId(task.getId());
+        boolean b = JdbcService.update("INSERT INTO demo_log (name, note, unique_id) VALUES (?, ?, ?)", task.getName(), "let me..." + task.getId(), uniqueId);
         System.out.println("已执行该节点" + b);
         Map map = new HashMap();
         map.put("success", b);
         return map;
     }
+
+
+    // 查询我的请假
+    public Map getActivitiTaskDemos(String key, String user) {
+
+        List<Task> personalTaskList = activitiServiceNewUtil.getPersonalTaskList(user, key);
+
+        Map map = new HashMap();
+        map.put("personalTaskList", personalTaskList);
+        return map;
+    }
+
 
 
 }

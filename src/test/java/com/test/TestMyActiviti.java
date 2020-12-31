@@ -5,12 +5,15 @@ import com.ActApplication;
 import com.mySelf.bean.QingjiaBean;
 import com.mySelf.service.QingjiaService;
 
+import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Map;
 
 /**
  * 自己写的测试类
@@ -26,11 +29,31 @@ public class TestMyActiviti {
 
 
     /**
+     * 删除流程定义（删除流程图）
+     */
+    @Test
+    public void deleteDeployment(){
+        qingjiaService.deleteDeploymentActivitiDemos("c08301af-4a67-11eb-bdf4-002324e3fafb", true);
+    }
+
+
+    /**
+     * 查看流程定义
+     */
+    @Test
+    public void getDeployment(){
+        Map qingjiaProcess = qingjiaService.getDeploymentActivitiDemos("qingjiaProcess");
+        System.out.println(qingjiaProcess);
+
+
+    }
+
+    /**
      * 启动流程
      */
     @Test
     public void startProcess(){
-        QingjiaBean qingjiaBean = new QingjiaBean(16888, 7, "mc", "终章的叹息");
+        QingjiaBean qingjiaBean = new QingjiaBean(66666, 8, "mc", "旋律的回响");
         qingjiaService.startActivitiDemos("qingjiaProcess", qingjiaBean);
     }
 
@@ -38,54 +61,12 @@ public class TestMyActiviti {
      * 执行流程
      */
     @Test
-    public void submmitProcess(){
-        qingjiaService.submmitActivitiDemos("my-e083b4a177da4f449ad7e77af3b5b33c");
+    public void sunmmitProcess(){
+        qingjiaService.submmitActivitiDemos("caiwu", "my-29c6e425cf4a41abbdc6d94f68527b70");
 
     }
 
-    /**
-     * 执行流程
-     */
-    @Test
-    public void submmitPro22cess(){
-        qingjiaService.submmitActivitiDemos("my-e083b4a177da4f449ad7e77af3b5b33c");
 
-    } /**
-     * 执行流程
-     */
-    @Test
-    public void submmitProce2ss(){
-        qingjiaService.submmitActivitiDemos("my-e083b4a177da4f449ad7e77af3b5b33c");
 
-    } /**
-     * 执行流程
-     */
-    @Test
-    public void subm2mi2tProcess(){
-        qingjiaService.submmitActivitiDemos("my-e083b4a177da4f449ad7e77af3b5b33c");
-
-    } /**
-     * 执行流程
-     */
-    @Test
-    public void subm2mitProcess(){
-        qingjiaService.submmitActivitiDemos("my-e083b4a177da4f449ad7e77af3b5b33c");
-
-    }
-    /**
-     * 执行流程
-     */
-    @Test
-    public void s22ubmmitProcess(){
-        qingjiaService.submmitActivitiDemos("my-e083b4a177da4f449ad7e77af3b5b33c");
-
-    } /**
-     * 执行流程
-     */
-    @Test
-    public void su12bmmitProcess(){
-        qingjiaService.submmitActivitiDemos("my-e083b4a177da4f449ad7e77af3b5b33c");
-
-    }
 
 }
