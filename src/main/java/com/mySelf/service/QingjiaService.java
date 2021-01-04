@@ -63,7 +63,7 @@ public class QingjiaService {
         conditionMap.put("uuid", uuid);
 
         // 这里不再调用工具方法，尝试使用原生方法Api
-        ProcessInstance instance = processEngine.getRuntimeService().startProcessInstanceByKey(key, conditionMap);
+        ProcessInstance instance = processEngine.getRuntimeService().startProcessInstanceByKey(key, uuid, conditionMap);
 
         JdbcService.update("INSERT INTO demo_qingjia (id, name, reason, day, take_money, unique_id) VALUES (?, ?, ?, ?, ?, ?)"
                 , null, qingjiaBean.getName(), qingjiaBean.getReason(), qingjiaBean.getDay(), qingjiaBean.getMoney(), uuid
@@ -80,7 +80,7 @@ public class QingjiaService {
     public Map submmitActivitiDemos(String assignee, String uniqueId) {
         Task task = activitiServiceNewUtil.getTaskByAssigneeAndUuid(assignee, uniqueId);
         activitiServiceNewUtil.completByTaskId(task.getId());
-        boolean b = JdbcService.update("INSERT INTO demo_log (name, note, unique_id) VALUES (?, ?, ?)", task.getName(), "let me..." + task.getId(), uniqueId);
+        boolean b = JdbcService.update("INSERT INTO demo_log (name, note, unique_id) VALUES (?, ?, ?)", task.getName()+task.getAssignee(), "let me..." + task.getId(), uniqueId);
         System.out.println("已执行该节点" + b);
         Map map = new HashMap();
         map.put("success", b);
@@ -97,6 +97,34 @@ public class QingjiaService {
         map.put("personalTaskList", personalTaskList);
         return map;
     }
+
+    // 查询任务节点通过业务键
+    public Map getActivitiTaskDemosByBusinessKey(String businessKey) {
+        List<Task> personalTaskList = activitiServiceNewUtil.getTaskListByBusinessKey(businessKey);
+
+        Map map = new HashMap();
+        map.put("personalTaskList", personalTaskList);
+        return map;
+    }
+
+    // 设置候选人为办理人
+    public void setActivitiTaskDemosCandidateByBusinessKey(String businessKey, String user) {
+       activitiServiceNewUtil.claimTask(businessKey, user);
+
+    }
+
+    // 退还任务
+    public void backActivitiTaskDemosCandidateByBusinessKey(String businessKey) {
+        activitiServiceNewUtil.backTask(businessKey);
+
+    }
+
+    // 交接任务
+    public void giveActivitiTaskDemosCandidateByBusinessKey(String businessKey, String user) {
+        activitiServiceNewUtil.giveTaskToOtherUser(businessKey, user);
+
+    }
+
 
 
 

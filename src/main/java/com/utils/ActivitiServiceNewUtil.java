@@ -156,7 +156,7 @@ public class ActivitiServiceNewUtil {
      */
     public Task getTaskByAssigneeAndUuid(String assignee, String uuid) {
 
-      // 获取taskService
+        // 获取taskService
         TaskService taskService = processEngine.getTaskService();
         // 根据流程key 和 任务的负责人 查询任务
         // 返回一个任务对象
@@ -168,6 +168,40 @@ public class ActivitiServiceNewUtil {
         return task;
     }
 
+    /**
+     * 查询任务
+     * assignee 任务负责人
+     */
+    public Task getTaskByAssigneeAndBusinessKey(String assignee, String businessKey) {
+
+        // 获取taskService
+        TaskService taskService = processEngine.getTaskService();
+        // 根据流程key 和 任务的负责人 查询任务
+        // 返回一个任务对象
+        Task task = taskService.createTaskQuery()
+                .processInstanceBusinessKey(businessKey)
+                .taskAssignee(assignee) //要查询的负责人
+                .singleResult();
+
+        return task;
+    }
+
+    /**
+     * 查询任务
+     * assignee 任务负责人
+     */
+    public List<Task> getTaskListByBusinessKey(String businessKey) {
+
+        // 获取taskService
+        TaskService taskService = processEngine.getTaskService();
+        // 根据流程key 和 任务的负责人 查询任务
+        // 返回一个任务对象
+        List<Task> list = taskService.createTaskQuery()
+                .processInstanceBusinessKey(businessKey)
+                .list();
+
+        return list;
+    }
 
     /**
      * 完成单个任务（不推荐）
@@ -192,8 +226,8 @@ public class ActivitiServiceNewUtil {
      * 完成任务
      * 因为每个任务有唯一的uuid, 但这并不够，假如是并行任务呢，还需要来个assignee（负责人区分）
      */
-    public void completSingleTaskByUuid(String assignee, String businessUuid) {
-        Task task = getTaskByAssigneeAndUuid(assignee, businessUuid);
+    public void completSingleTaskByUuid(String assignee, String uuid) {
+        Task task = getTaskByAssigneeAndUuid(assignee, uuid);
         // 完成任务,参数：任务id
         processEngine.getTaskService().complete(task.getId());
     }
@@ -225,9 +259,62 @@ public class ActivitiServiceNewUtil {
         instanceQuery.orderByHistoricActivityInstanceStartTime().asc();
         // 查询所有内容
         List<HistoricActivityInstance> activityInstanceList = instanceQuery.list();
-       
+
         return activityInstanceList;
     }
 
+
+    /**
+     * 拾取任务---候选人模式
+     */
+    public void claimTask(String businessKey, String candidateUser) {
+        //得到TaskService对象
+        TaskService taskService = processEngine.getTaskService();
+
+        //执行查询
+        Task task = taskService.createTaskQuery()
+                .processInstanceBusinessKey(businessKey)
+                .singleResult();
+
+        if (task != null) {
+            taskService.claim(task.getId(), candidateUser);//第一个参数任务ID,第二个参数为具体的候选用户名
+            System.out.println("任务拾取完毕!");
+        }
+
+    }
+
+    /**
+     * 归还任务---候选人模式
+     */
+    public void backTask(String businessKey) {
+        TaskService taskService = processEngine.getTaskService();
+
+        //执行查询
+        Task task = taskService.createTaskQuery()
+                .processInstanceBusinessKey(businessKey)
+                .singleResult();
+        //判断是否有这个任务
+        if (task != null) {
+            //如果设置为null,归还组任务,该任务没有负责人
+            taskService.setAssignee(task.getId(), null);
+        }
+    }
+
+    /**
+     * 任务交接---候选人模式
+     */
+    public void giveTaskToOtherUser(String businessKey, String candidateUser) {
+        TaskService taskService = processEngine.getTaskService();
+
+        //执行查询
+        Task task = taskService.createTaskQuery()
+                .processInstanceBusinessKey(businessKey)
+                .singleResult();
+        //判断是否有这个任务
+        if (task != null) {
+            taskService.setAssignee(task.getId(), candidateUser);
+            System.out.println("交接任务完成~!");
+        }
+    }
 
 }

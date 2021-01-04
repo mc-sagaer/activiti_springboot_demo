@@ -53,7 +53,7 @@ public class TestMyActiviti {
      */
     @Test
     public void startProcess(){
-        QingjiaBean qingjiaBean = new QingjiaBean(66666, 8, "mc", "旋律的回响");
+        QingjiaBean qingjiaBean = new QingjiaBean(118, 2, "mc2021-2", "月生");
         qingjiaService.startActivitiDemos("qingjiaProcess", qingjiaBean);
     }
 
@@ -62,9 +62,44 @@ public class TestMyActiviti {
      */
     @Test
     public void sunmmitProcess(){
-        qingjiaService.submmitActivitiDemos("caiwu", "my-29c6e425cf4a41abbdc6d94f68527b70");
+        qingjiaService.submmitActivitiDemos("zuzhang", "my-9f6195d4592740498cd6be59fbbe311f");
 
     }
+
+
+    /**
+     * 查询流程到哪了
+     */
+    @Test
+    public void getProcess(){
+        Map activitiTaskDemosByBusinessKey = qingjiaService.getActivitiTaskDemosByBusinessKey("my-ed2b86c50cab493787ee7fa2dd6a8ad4");
+        System.out.println(activitiTaskDemosByBusinessKey);
+    }
+
+    /**
+     * 领取任务
+     */
+    @Test
+    public void claimProcess(){
+       qingjiaService.setActivitiTaskDemosCandidateByBusinessKey("my-ed2b86c50cab493787ee7fa2dd6a8ad4", "zhangsan");
+    }
+
+    /**
+     * 退还任务
+     */
+    @Test
+    public void backProcess(){
+        qingjiaService.backActivitiTaskDemosCandidateByBusinessKey("my-ed2b86c50cab493787ee7fa2dd6a8ad4");
+    }
+
+    /**
+     * 交接任务
+     */
+    @Test
+    public void giveProcess(){
+        qingjiaService.giveActivitiTaskDemosCandidateByBusinessKey("my-ed2b86c50cab493787ee7fa2dd6a8ad4", "lisi");
+    }
+
 
 
 
