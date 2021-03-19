@@ -53,6 +53,28 @@ public class QingjiaService {
     }
 
     // 发起一个请假
+    public Map start22ActivitiDemos(String key,  Map conditionMap ) {
+
+
+        String uuid = "my-" + UUID.randomUUID().toString().replaceAll("-", "");
+        conditionMap.put("uuid", uuid);
+
+
+
+        // 这里不再调用工具方法，尝试使用原生方法Api
+        ProcessInstance instance = processEngine.getRuntimeService().startProcessInstanceByKey(key, uuid, conditionMap);
+
+        JdbcService.update("INSERT INTO demo_qingjia (id, name, reason, day, take_money, unique_id) VALUES (?, ?, ?, ?, ?, ?)"
+                , null, 1, 1,1, 1, uuid
+        );
+
+        System.out.println(instance.toString());
+        Map map = new HashMap();
+        map.put("instance", instance);
+        return map;
+    }
+
+    // 发起一个请假
     public Map startActivitiDemos(String key, QingjiaBean qingjiaBean) {
 
         // 发起初始，我就把条件都给定
@@ -61,6 +83,9 @@ public class QingjiaService {
         // 我也可以额外加一些参数，
         String uuid = "my-" + UUID.randomUUID().toString().replaceAll("-", "");
         conditionMap.put("uuid", uuid);
+        conditionMap.put("moneyy", 12);
+
+        qingjiaBean.setUuid(uuid);
 
         // 这里不再调用工具方法，尝试使用原生方法Api
         ProcessInstance instance = processEngine.getRuntimeService().startProcessInstanceByKey(key, uuid, conditionMap);
@@ -70,11 +95,23 @@ public class QingjiaService {
         );
 
         System.out.println(instance.toString());
+        System.out.println(uuid);
         Map map = new HashMap();
         map.put("instance", instance);
         return map;
     }
 
+
+    // 执行一个请假
+    public Map submmitActivitiDemos(String assignee, String uniqueId, Map<String,Object>varlues) {
+        Task task = activitiServiceNewUtil.getTaskByAssigneeAndUuid(assignee, uniqueId);
+        activitiServiceNewUtil.completByTaskIdAndSetVar(task.getId(), varlues);
+        boolean b = JdbcService.update("INSERT INTO demo_log (name, note, unique_id) VALUES (?, ?, ?)", task.getName()+task.getAssignee(), "let me..." + task.getId(), uniqueId);
+        System.out.println("已执行该节点" + b);
+        Map map = new HashMap();
+        map.put("success", b);
+        return map;
+    }
 
     // 执行一个请假
     public Map submmitActivitiDemos(String assignee, String uniqueId) {
@@ -95,6 +132,23 @@ public class QingjiaService {
 
         Map map = new HashMap();
         map.put("personalTaskList", personalTaskList);
+        return map;
+    }
+
+
+    // 查询任务节点通过自己的uuid
+    public Map getActivitiTaskDemosByAssigneeAndUuid(String assignee, String uniqueId) {
+        Task task = activitiServiceNewUtil.getTaskByAssigneeAndUuid(assignee, uniqueId);
+        Map map = new HashMap();
+        map.put("task", task);
+        return map;
+    }
+
+    // 查询任务节点通过自己的uuid
+    public Map getActivitiTaskDemosByUuid(String uniqueId) {
+        List<Task> list = activitiServiceNewUtil.getTaskByUuid(uniqueId);
+        Map map = new HashMap();
+        map.put("taskList", list);
         return map;
     }
 

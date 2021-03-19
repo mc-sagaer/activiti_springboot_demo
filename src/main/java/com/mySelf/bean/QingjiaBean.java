@@ -7,6 +7,7 @@ public class QingjiaBean implements Serializable {
     private double day;
     private String name;
     private String reason;
+    private String uuid;
 
     @Override
     public String toString() {
@@ -24,6 +25,14 @@ public class QingjiaBean implements Serializable {
         this.day = day;
         this.name = name;
         this.reason = reason;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public double getMoney() {

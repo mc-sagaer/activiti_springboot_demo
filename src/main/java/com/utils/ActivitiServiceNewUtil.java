@@ -169,6 +169,22 @@ public class ActivitiServiceNewUtil {
     }
 
     /**
+     * 任务执行人列表
+     */
+    public  List<Task>  getTaskByUuid(String uuid) {
+
+        // 获取taskService
+        TaskService taskService = processEngine.getTaskService();
+        // 根据流程key 和 任务的负责人 查询任务
+        // 返回一个任务对象
+        List<Task> list = taskService.createTaskQuery()
+                .processVariableValueEquals("uuid", uuid) //流程Key
+                .list();
+
+        return list;
+    }
+
+    /**
      * 查询任务
      * assignee 任务负责人
      */
@@ -230,6 +246,15 @@ public class ActivitiServiceNewUtil {
         Task task = getTaskByAssigneeAndUuid(assignee, uuid);
         // 完成任务,参数：任务id
         processEngine.getTaskService().complete(task.getId());
+    }
+
+    /**
+     * 完成任务
+     * 因为每个任务有唯一的uuid, 但这并不够，假如是并行任务呢，还需要来个assignee（负责人区分）
+     */
+    public void completByTaskIdAndSetVar(String taskId,  Map<String,Object>varlues) {
+        // 完成任务,参数：任务id
+        processEngine.getTaskService().complete(taskId, varlues);
     }
 
     /**
